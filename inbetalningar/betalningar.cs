@@ -87,9 +87,30 @@ namespace BankGiroPayment
         {
             payment pay = new payment();
             pay.senderBgNumber = post.Substring(3,10);
-            pay.paymentChannel = post.Substring(57,1);
             pay.amount =(float.Parse(post.Substring(38,18), CultureInfo.InvariantCulture.NumberFormat) / 100);
             pay.BgSerialNumber = post.Substring(58, 12);
+            switch (post.Substring(57, 1)) 
+            {
+                case"1":
+                    pay.paymentChannel = "1 Betalningen är en elektronisk betalning från bank.";
+                break;
+
+                case"2":
+                pay.paymentChannel = "Betalningen är en elektronisk betalning från tjänsten Leverantörsbetalningar (LB)";
+                break;
+
+                case"3":
+                pay.paymentChannel = "Betalningen är en blankettbetalning";
+                break;
+
+                case"4":
+                pay.paymentChannel = "Betalningen är en elektronisk betalning från tjänsten Autogiro (AG). Reserverad för framtida bruk";
+                break;
+
+                default:
+                   throw new System.Exception("Error Parsing PaymentChannel, please verify the paymentdocument");
+                break;
+            }
             return pay;
         }
 

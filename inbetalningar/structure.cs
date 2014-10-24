@@ -24,11 +24,11 @@ namespace BankGiroPayment
         public string transferSerialNumber { get; set; }
         public float totalAmount { get; set; }
         public int numTransfers { get; set; }
-        public List<payment> payments;
-        public List<payment> deductions;
-        public List<string> info;
+        public List<payment> payments { get; set; }
+        public List<payment> deductions { get; set; }
+        public List<string> info { get; set; }
         public string payerName { get; set; }
-        public List<string> additionalNames;
+        public List<string> additionalNames { get; set; }
     }
     public class payment
     {
