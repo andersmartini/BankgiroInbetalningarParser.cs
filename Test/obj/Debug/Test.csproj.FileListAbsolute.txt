@@ -1,0 +1,8 @@
+C:\Users\Karl\documents\visual studio 2012\Projects\inbetalningar\Test\obj\Debug\Test.csprojResolveAssemblyReference.cache
+C:\Users\Karl\documents\visual studio 2012\Projects\inbetalningar\Test\bin\Debug\Test.exe.config
+C:\Users\Karl\documents\visual studio 2012\Projects\inbetalningar\Test\bin\Debug\Test.exe
+C:\Users\Karl\documents\visual studio 2012\Projects\inbetalningar\Test\bin\Debug\Test.pdb
+C:\Users\Karl\documents\visual studio 2012\Projects\inbetalningar\Test\bin\Debug\inbetalningar.dll
+C:\Users\Karl\documents\visual studio 2012\Projects\inbetalningar\Test\bin\Debug\inbetalningar.pdb
+C:\Users\Karl\documents\visual studio 2012\Projects\inbetalningar\Test\obj\Debug\Test.exe
+C:\Users\Karl\documents\visual studio 2012\Projects\inbetalningar\Test\obj\Debug\Test.pdb
