@@ -10,8 +10,8 @@ namespace BankGiroPayment
     public partial class BankGiroPaymentFile
     {
         private bool intiated = false;
-        private section currentSection;
-        public void init(string post)
+        private Section currentSection;
+        internal void init(string post)
         {
             if(this.intiated)
             {
@@ -26,8 +26,20 @@ namespace BankGiroPayment
         
 
         }
+        internal void AddAddress(string post) 
+        {
+            currentSection.payersAddress = post.Substring(3, 35);
+            currentSection.payersPostCode = post.Substring(38, 9);
+        }
 
-        public void addName (string post)
+        internal void AddAddress2(string post) 
+        {
+            currentSection.payersCity = post.Substring(3, 35);
+            currentSection.payersCountry = post.Substring(38, 35);
+            currentSection.payersCountryCode = post.Substring(73, 2);
+        }
+
+        internal void addName (string post)
         {
             currentSection.payerName = post.Substring(3, 35);
             string Names = post.Substring(38, 35);
@@ -37,7 +49,7 @@ namespace BankGiroPayment
         internal void startSection(string post)
         {
             if(this.currentSection == null){
-            section section = new section();
+            Section section = new Section();
             section.recieverBgNumber = post.Substring(3, 10);
             section.recieverBgPlusNumber = post.Substring(13,10);
             section.currency = post.Substring(23,3);
@@ -52,13 +64,13 @@ namespace BankGiroPayment
 
         internal void addPayment(string post)
         {
-            payment pay = parsePaymentOrDeductionPost(post);
+            Payment pay = parsePaymentOrDeductionPost(post);
 
-            currentSection.payments.Add(pay);
+              currentSection.payments.Add(pay);
         }
         internal void addDeduction(string post) 
         {
-            payment deduct = parsePaymentOrDeductionPost(post);
+            Payment deduct = parsePaymentOrDeductionPost(post);
 
             currentSection.deductions.Add(deduct);
         }
@@ -70,10 +82,11 @@ namespace BankGiroPayment
 
         internal void endSection(string post) 
         {
-            string recieverBankAcount = post.Substring(3,35);
-            DateTime payDate = Convert.ToDateTime(post.Substring(38,8));
-            string transferSerialNumber = post.Substring(46,5);
-            float totalAmount = float.Parse(post.Substring(51,18));
+            currentSection.recieverBankAcount = post.Substring(3,35);
+            currentSection.payDate = DateTime.ParseExact(post.Substring(38,8),"yyyyMMdd",null);
+            currentSection.transferSerialNumber = post.Substring(46,5);
+            currentSection.totalAmount = (float.Parse(post.Substring(51,18))/100);
+
             sections.Add(currentSection);
             currentSection = null;
         }
@@ -82,13 +95,18 @@ namespace BankGiroPayment
             string info = post.Substring(3, 50);
             currentSection.info.Add(info);
         }
-
-        private payment parsePaymentOrDeductionPost(string post)
+        internal void addRefference(string post) 
         {
-            payment pay = new payment();
+
+        }
+
+        private Payment parsePaymentOrDeductionPost(string post)
+        {
+            Payment pay = new Payment();
             pay.senderBgNumber = post.Substring(3,10);
             pay.amount =(float.Parse(post.Substring(38,18), CultureInfo.InvariantCulture.NumberFormat) / 100);
             pay.BgSerialNumber = post.Substring(58, 12);
+            pay.referenceString = post.Substring(13, 25);
             switch (post.Substring(57, 1)) 
             {
                 case"1":
@@ -109,7 +127,6 @@ namespace BankGiroPayment
 
                 default:
                    throw new System.Exception("Error Parsing PaymentChannel, please verify the paymentdocument");
-                break;
             }
             return pay;
         }

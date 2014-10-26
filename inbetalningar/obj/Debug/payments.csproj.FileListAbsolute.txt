@@ -1,4 +1,3 @@
-c:\users\karl\documents\visual studio 2012\Projects\inbetalningar\inbetalningar\obj\Debug\payments.csprojResolveAssemblyReference.cache
 C:\Users\Karl\documents\visual studio 2012\Projects\inbetalningar\inbetalningar\bin\Debug\inbetalningar.dll
 C:\Users\Karl\documents\visual studio 2012\Projects\inbetalningar\inbetalningar\bin\Debug\inbetalningar.pdb
 C:\Users\Karl\documents\visual studio 2012\Projects\inbetalningar\inbetalningar\obj\Debug\inbetalningar.dll

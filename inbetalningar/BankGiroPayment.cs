@@ -18,55 +18,74 @@ namespace BankGiroPayment
             do
             {
                post = " " + readDoc.ReadLine();
-               if(post != null)
+               if(post != " ")
                {
                     string TK = post.Substring(1,2);
                     switch(TK)
                     {
                         case "01":
                             bgp.init(post);
-                        break;
+                            break;
 
                         case "05":
                             bgp.startSection(post);
-                        break;
-
-                        case "20":
-                        bgp.addPayment(post);
-                        break;
-
-                        case "21":
-                        bgp.addDeduction(post);
-                        break;
-
-                        case "25":
-                        bgp.addInfo(post);
-                        break;
-
-                        case "26":
-                        bgp.addName(post);
-                        break;
+                            break;
 
                         case"15":
-                        bgp.endSection(post);
-                        break;
+                            bgp.endSection(post);
+                            break;
+
+                        case "20":
+                            bgp.addPayment(post);
+                            break;
+
+                        case "21":
+                            bgp.addDeduction(post);
+                            break;
+
+                        case "22":
+                            bgp.addRefference(post);
+                            break;
+
+                        case "23":
+                            break;
+
+
+                        case "25":
+                            bgp.addInfo(post);
+                            break;
+
+                        case "26":
+                            bgp.addName(post);
+                            break;
+
+                        case "27":
+                            bgp.AddAddress(post);
+                            break;
+
+                        case "28":
+                            bgp.AddAddress2(post);
+                            break;
+
+                        
+
+                       
                         
                         case "29":
-                        bgp.addOrgNumber(post);
-                        break;
+                            bgp.addOrgNumber(post);
+                            break;
 
                         case "70":
-                        return bgp;
-                        break;
+                            return bgp;
+                        
 
                         default:
-                        string m =  "Encountered an unexpected (post-type identifier) value while parsing file from BankGirot";
-                        throw new System.Exception(m);
+                            string m =  "Encountered an unexpected (post-type identifier) value while parsing file from BankGirot";
+                            throw new System.Exception(m);
                     }
                }
-            
             }    
-            while(post != null);   
+            while(post != " ");   
     
             return bgp;
 

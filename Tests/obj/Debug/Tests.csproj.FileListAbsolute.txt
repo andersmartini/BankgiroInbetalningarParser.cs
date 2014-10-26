@@ -1,0 +1,8 @@
+C:\Users\Karl\documents\visual studio 2012\Projects\inbetalningar\Tests\bin\Debug\Tests.dll
+C:\Users\Karl\documents\visual studio 2012\Projects\inbetalningar\Tests\bin\Debug\Tests.pdb
+C:\Users\Karl\documents\visual studio 2012\Projects\inbetalningar\Tests\obj\Debug\Tests.csprojResolveAssemblyReference.cache
+C:\Users\Karl\documents\visual studio 2012\Projects\inbetalningar\Tests\obj\Debug\Tests.dll
+C:\Users\Karl\documents\visual studio 2012\Projects\inbetalningar\Tests\obj\Debug\Tests.pdb
+C:\Users\Karl\documents\visual studio 2012\Projects\inbetalningar\Tests\bin\Debug\BgMaxfil3.txt
+C:\Users\Karl\documents\visual studio 2012\Projects\inbetalningar\Tests\bin\Debug\inbetalningar.dll
+C:\Users\Karl\documents\visual studio 2012\Projects\inbetalningar\Tests\bin\Debug\inbetalningar.pdb

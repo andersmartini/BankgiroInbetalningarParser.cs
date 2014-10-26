@@ -6,3 +6,4 @@ C:\Users\Karl\documents\visual studio 2012\Projects\inbetalningar\Test\bin\Debug
 C:\Users\Karl\documents\visual studio 2012\Projects\inbetalningar\Test\bin\Debug\inbetalningar.pdb
 C:\Users\Karl\documents\visual studio 2012\Projects\inbetalningar\Test\obj\Debug\Test.exe
 C:\Users\Karl\documents\visual studio 2012\Projects\inbetalningar\Test\obj\Debug\Test.pdb
+C:\Users\Karl\documents\visual studio 2012\Projects\inbetalningar\Test\bin\Debug\BgMaxfil3.txt
