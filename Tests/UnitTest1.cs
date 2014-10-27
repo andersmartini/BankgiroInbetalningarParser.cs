@@ -43,10 +43,13 @@ namespace Tests
             var bgf = new BankGiroPayment.BankGiroPayment();
             var file = bgf.ParseBankGiroPayment(testfile);
             var firstSection = file.Sections.First();
-            var refs = new List<string>(new string[] { "657866", "658765", "657767" });
+            var expectedRefs = new List<string>(new string[] { "657866", "658765", "657767" });
 
-            Assert.AreEqual(firstSection.Payments[1].Refs, refs);
-            
+            var actualRefs = firstSection.Payments[1].Refs;
+            var extraRefs = actualRefs.Where(r => !expectedRefs.Contains(r));
+            var missingRefs = expectedRefs.Where(r => !actualRefs.Contains(r));
+            Assert.IsTrue(!extraRefs.Any());
+            Assert.IsTrue(!missingRefs.Any());
 
         }
     }
