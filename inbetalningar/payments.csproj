@@ -39,9 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="betalningar.cs" />
+    <Compile Include="BankGiroPaymentFile.cs" />
     <Compile Include="BankGiroPayment.cs" />
+    <Compile Include="Payment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Section.cs" />
     <Compile Include="structure.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

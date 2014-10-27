@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace BankGiroPayment
@@ -10,41 +6,41 @@ namespace BankGiroPayment
     public class BankGiroPayment
     {
         protected DateTime CurrentDocDate;
-        public BankGiroPaymentFile parseBankGiroPayment (string doc)
+        public BankGiroPaymentFile ParseBankGiroPayment (string doc)
         {
-            StringReader readDoc = new StringReader(doc);
-            BankGiroPaymentFile bgp = new BankGiroPaymentFile();
-            string post = string.Empty;
+            var readDoc = new StringReader(doc);
+            var bgp = new BankGiroPaymentFile();
+            var post = string.Empty;
             do
             {
                post = " " + readDoc.ReadLine();
                if(post != " ")
                {
-                    string TK = post.Substring(1,2);
-                    switch(TK)
+                    var tk = post.Substring(1,2);
+                    switch(tk)
                     {
                         case "01":
-                            bgp.init(post);
+                            bgp.Init(post);
                             break;
 
                         case "05":
-                            bgp.startSection(post);
+                            bgp.StartSection(post);
                             break;
 
                         case"15":
-                            bgp.endSection(post);
+                            bgp.EndSection(post);
                             break;
 
                         case "20":
-                            bgp.addPayment(post);
+                            bgp.AddPayment(post);
                             break;
 
                         case "21":
-                            bgp.addDeduction(post);
+                            bgp.AddDeduction(post);
                             break;
 
                         case "22":
-                            bgp.addRefference(post);
+                            bgp.AddRefference(post);
                             break;
 
                         case "23":
@@ -52,11 +48,11 @@ namespace BankGiroPayment
 
 
                         case "25":
-                            bgp.addInfo(post);
+                            bgp.AddInfo(post);
                             break;
 
                         case "26":
-                            bgp.addName(post);
+                            bgp.AddName(post);
                             break;
 
                         case "27":
@@ -72,7 +68,7 @@ namespace BankGiroPayment
                        
                         
                         case "29":
-                            bgp.addOrgNumber(post);
+                            bgp.AddOrgNumber(post);
                             break;
 
                         case "70":
@@ -80,8 +76,8 @@ namespace BankGiroPayment
                         
 
                         default:
-                            string m =  "Encountered an unexpected (post-type identifier) value while parsing file from BankGirot";
-                            throw new System.Exception(m);
+                            var m =  "Encountered an unexpected (post-type identifier) value while parsing file from BankGirot";
+                            throw new Exception(m);
                     }
                }
             }    

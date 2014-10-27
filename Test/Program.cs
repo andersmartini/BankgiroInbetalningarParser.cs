@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BankGiroPayment;
 using System.IO;
+using System.Text;
 
 namespace Test
 {
@@ -12,9 +8,9 @@ namespace Test
     {
         static void Main(string[] args)
         {
-           string testfile = File.ReadAllText("BgMaxfil3.txt", Encoding.GetEncoding(28591));
-           BankGiroPayment.BankGiroPayment bgf = new BankGiroPayment.BankGiroPayment();
-           BankGiroPaymentFile file = bgf.parseBankGiroPayment(testfile);
+           var testfile = File.ReadAllText("BgMaxfil3.txt", Encoding.GetEncoding(28591));
+           var bgf = new BankGiroPayment.BankGiroPayment();
+           var file = bgf.ParseBankGiroPayment(testfile);
 
            Console.Write(file);
            Console.ReadLine();
